@@ -1,2 +1,2 @@
-import mobile_model
-import controller
+from . import mobile_model
+from . import controller

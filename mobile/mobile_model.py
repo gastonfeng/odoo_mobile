@@ -193,10 +193,10 @@ class MobileController(http.Controller):
             allGridData.setdefault(grid.label_id, []).append({
                 'title': grid.title,
                 'actionId': grid.mobile_action_id.id,
-                'image': 'data:image/png;base64,' + grid.image  # 图片信息直接读取返回前端用base64
+                'image': 'data:image/png;base64,' + grid.image.decode()  # 图片信息直接读取返回前端用base64
             })
         gridList = [{'groupTitle': label.name, 'sequence': label.sequence,
-                     'gridCols': 4, 'gridRow': row} for label, row in allGridData.iteritems()]
+                     'gridCols': 4, 'gridRow': row} for label, row in allGridData.items()]
         gridList = sorted(gridList, key=lambda grid: grid.get('sequence'))
         return simplejson.dumps(gridList)
 

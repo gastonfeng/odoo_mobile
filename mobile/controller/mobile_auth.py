@@ -27,5 +27,5 @@ class IrHttp(models.AbstractModel):
     @classmethod
     def _auth_method_mobile(self):
         request.uid = request.session.uid
-        if request.mobile and not request.session.oauth_uid:
-            raise http.AuthenticationError("Weixin not authentication")
+#        if request.mobile and not request.session.oauth_uid:
+#            raise http.AuthenticationError("Weixin not authentication")
